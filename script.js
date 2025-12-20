@@ -1,3 +1,12 @@
+let kullanici = localStorage.getItem("kullanici");
+
+if (!kullanici) {
+  kullanici = prompt("🌱 İsmini gir:");
+  localStorage.setItem("kullanici", kullanici);
+}
+
+document.querySelector("header p").textContent =
+  `Hoş geldin ${kullanici}! Dünyamız için harekete geçme zamanı 🌍`;
 // ✅ MESAJ GÖSTER
 function mesajGoster() {
   const mesaj = document.getElementById("mesaj");
@@ -8,25 +17,23 @@ function mesajGoster() {
 // 🌙 KARANLIK MOD (KALICI)
 function karanlikMod() {
   document.body.classList.toggle("dark");
-
-  if (document.body.classList.contains("dark")) {
-    localStorage.setItem("tema", "dark");
-  } else {
-    localStorage.setItem("tema", "light");
-  }
+  localStorage.setItem(
+    "tema",
+    document.body.classList.contains("dark") ? "dark" : "light"
+  );
 }
 
 if (localStorage.getItem("tema") === "dark") {
   document.body.classList.add("dark");
 }
 
-// 🔢 SAYAÇ
-let sayi = localStorage.getItem("sayac") || 0;
+// 🔢 ZİYARETÇİ SAYAÇ
+let sayi = Number(localStorage.getItem("sayac")) || 0;
 sayi++;
 localStorage.setItem("sayac", sayi);
 document.getElementById("sayac").textContent = sayi;
 
-// 🌍 KARBON HESAPLAMA
+// 🌍 KARBON AYAK İZİ HESAPLAMA
 function karbonHesapla() {
   const araba = Number(document.getElementById("araba").value) || 0;
   const elektrik = Number(document.getElementById("elektrik").value) || 0;
@@ -46,7 +53,7 @@ function karbonHesapla() {
   // 🌳 AĞAÇ HESABI
   const agacSayisi = Math.ceil(toplam / 21);
   const agac = document.getElementById("agac");
-  agac.textContent = `🌳 Bu karbonu dengelemek için yaklaşık ${agacSayisi} ağaç gerekir.`;
+  agac.textContent = `🌳 Dengelemek için yaklaşık ${agacSayisi} ağaç gerekir.`;
   agac.classList.remove("hidden");
 
   // 🏆 ROZET
@@ -66,11 +73,10 @@ function karbonHesapla() {
 
   rozet.classList.remove("hidden");
 
-  // 📈 GRAFİK
   grafikCiz(arabaCO2, elektrikCO2, ucakCO2);
 }
 
-// 📊 GRAFİK ÇİZİMİ
+// 📊 GRAFİK
 function grafikCiz(araba, elektrik, ucak) {
   const canvas = document.getElementById("grafik");
   const ctx = canvas.getContext("2d");
@@ -91,10 +97,14 @@ function grafikCiz(araba, elektrik, ucak) {
       : "#4CAF50";
 
     ctx.fillRect(x, y, 40, barYukseklik);
+
+    // 📊 SAYI
     ctx.fillStyle = "white";
+    ctx.fillText(Math.round(deger), x + 5, y - 5);
     ctx.fillText(etiketler[i], x, 195);
   });
 }
+
 
 // 💡 GÜNLÜK İPUCU
 const ipuclari = [
@@ -107,3 +117,43 @@ const ipuclari = [
 
 document.getElementById("ipucu").innerText =
   ipuclari[Math.floor(Math.random() * ipuclari.length)];
+
+// ⏳ GERİ SAYIM (60 sn)
+let sure = 60;
+const sayim = document.getElementById("sayim");
+
+const zamanlayici = setInterval(() => {
+  if (sure > 0) {
+    sure--;
+    sayim.textContent = sure;
+  } else {
+    clearInterval(zamanlayici);
+    sayim.textContent = "🎉 Süre doldu!";
+  }
+}, 1000);
+
+// 🤔 SEÇİM
+function cevapVer() {
+  const cevap = document.getElementById("cevap");
+  cevap.textContent = "✅ Güzel seçim! Farkındalık artıyor.";
+  cevap.classList.remove("hidden");
+}
+
+// 📍 SCROLL İLERLEME
+window.addEventListener("scroll", () => {
+  const toplam = document.documentElement.scrollHeight - window.innerHeight;
+  const oran = Math.round((window.scrollY / toplam) * 100);
+  document.getElementById("ilerleme").textContent = `📍 İlerleme: %${oran}`;
+});
+
+// 🎉 SAYFA İÇİ TEBRİK (alert YOK)
+setTimeout(() => {
+  const mesaj = document.getElementById("mesaj");
+  mesaj.textContent = "🎉 30 saniyedir buradasın, harikasın! 🌱";
+  mesaj.classList.remove("hidden");
+}, 30000);
+setInterval(() => {
+  if (sure === 0) {
+    alert("🎉 Günlük çevre görevini tamamladın!");
+  }
+}, 1000);
