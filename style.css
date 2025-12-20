@@ -77,3 +77,21 @@ button:hover {
 .dark header {
   background-color: #000;
 }
+input {
+  padding: 8px;
+  width: 220px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+button {
+  padding: 10px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.dark input {
+  background: #222;
+  color: white;
+  border: 1px solid #555;
+}

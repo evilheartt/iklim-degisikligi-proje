@@ -53,3 +53,20 @@
   <script src="script.js"></script>
 </body>
 </html>
+
+<section class="fade-in">
+  <h2>🌍 Karbon Ayak İzi Hesaplayıcı</h2>
+
+  <label>🚗 Haftada kaç km araba kullanıyorsun?</label><br>
+  <input type="number" id="araba" placeholder="Örn: 50"><br><br>
+
+  <label>⚡ Aylık elektrik tüketimin (kWh)?</label><br>
+  <input type="number" id="elektrik" placeholder="Örn: 150"><br><br>
+
+  <label>✈️ Yılda kaç kez uçak yolculuğu?</label><br>
+  <input type="number" id="ucak" placeholder="Örn: 2"><br><br>
+
+  <button onclick="karbonHesapla()">Hesapla</button>
+
+  <p id="sonuc" class="hidden"></p>
+</section>
