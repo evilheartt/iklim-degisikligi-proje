@@ -95,3 +95,25 @@ button {
   color: white;
   border: 1px solid #555;
 }
+.rozet {
+  font-size: 18px;
+  margin-top: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  display: inline-block;
+}
+
+.yesil {
+  background: #2e7d32;
+  color: white;
+}
+
+.sari {
+  background: #f9a825;
+  color: black;
+}
+
+.kirmizi {
+  background: #c62828;
+  color: white;
+}

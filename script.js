@@ -53,10 +53,26 @@ function grafikCiz(araba, elektrik, ucak) {
     const x = 40 + i * 90;
     const y = 180 - barYukseklik;
 
-    ctx.fillStyle = "#4CAF50";
+    ctx.fillStyle = document.body.classList.contains("dark")
+  ? "#81c784"
+  : "#4CAF50";
     ctx.fillRect(x, y, 40, barYukseklik);
 
     ctx.fillStyle = "white";
     ctx.fillText(etiketler[i], x, 195);
   });
 }
+  const rozet = document.getElementById("rozet");
+
+  if (toplam < 2000) {
+    rozet.textContent = "🏆 ÇEVRE DOSTU 🌱";
+    rozet.className = "rozet yesil";
+  } else if (toplam < 5000) {
+    rozet.textContent = "⚠️ GELİŞTİRİLEBİLİR";
+    rozet.className = "rozet sari";
+  } else {
+    rozet.textContent = "❌ YÜKSEK KARBON AYAK İZİ";
+    rozet.className = "rozet kirmizi";
+  }
+
+  rozet.classList.remove("hidden");
