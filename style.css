@@ -117,3 +117,18 @@ button {
   background: #c62828;
   color: white;
 }
+footer {
+  background-color: #222;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  margin-top: 40px;
+  font-size: 14px;
+}
+footer {
+  display: block;
+  width: 100%;
+  position: relative;
+  z-index: 10;
+  clear: both;
+}

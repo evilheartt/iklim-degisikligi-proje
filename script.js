@@ -1,12 +1,23 @@
+// ✅ MESAJ GÖSTER
 function mesajGoster() {
   const mesaj = document.getElementById("mesaj");
   mesaj.textContent = "🌍 Tebrikler! Küçük adımlar büyük değişimler yaratır.";
   mesaj.classList.remove("hidden");
 }
 
-// 🌙 KARANLIK MOD
+// 🌙 KARANLIK MOD (KALICI)
 function karanlikMod() {
   document.body.classList.toggle("dark");
+
+  if (document.body.classList.contains("dark")) {
+    localStorage.setItem("tema", "dark");
+  } else {
+    localStorage.setItem("tema", "light");
+  }
+}
+
+if (localStorage.getItem("tema") === "dark") {
+  document.body.classList.add("dark");
 }
 
 // 🔢 SAYAÇ
@@ -14,6 +25,8 @@ let sayi = localStorage.getItem("sayac") || 0;
 sayi++;
 localStorage.setItem("sayac", sayi);
 document.getElementById("sayac").textContent = sayi;
+
+// 🌍 KARBON HESAPLAMA
 function karbonHesapla() {
   const araba = Number(document.getElementById("araba").value) || 0;
   const elektrik = Number(document.getElementById("elektrik").value) || 0;
@@ -25,19 +38,39 @@ function karbonHesapla() {
 
   const toplam = arabaCO2 + elektrikCO2 + ucakCO2;
 
-  // Sonuç yazısı
+  // 📊 SONUÇ
   const sonuc = document.getElementById("sonuc");
   sonuc.textContent = `🌱 Yıllık karbon ayak izin: ${Math.round(toplam)} kg CO₂`;
   sonuc.classList.remove("hidden");
 
-  // Ağaç hesabı
-  const agacSayisi = Math.ceil(toplam / 22);
+  // 🌳 AĞAÇ HESABI
+  const agacSayisi = Math.ceil(toplam / 21);
   const agac = document.getElementById("agac");
-  agac.textContent = `🌳 Bu kadar karbonu dengelemek için ${agacSayisi} ağaç gerekir.`;
+  agac.textContent = `🌳 Bu karbonu dengelemek için yaklaşık ${agacSayisi} ağaç gerekir.`;
   agac.classList.remove("hidden");
 
+  // 🏆 ROZET
+  const rozet = document.getElementById("rozet");
+  rozet.className = "rozet";
+
+  if (toplam < 2000) {
+    rozet.textContent = "🏆 ÇEVRE DOSTU 🌱";
+    rozet.classList.add("yesil");
+  } else if (toplam < 5000) {
+    rozet.textContent = "⚠️ GELİŞTİRİLEBİLİR";
+    rozet.classList.add("sari");
+  } else {
+    rozet.textContent = "❌ YÜKSEK KARBON AYAK İZİ";
+    rozet.classList.add("kirmizi");
+  }
+
+  rozet.classList.remove("hidden");
+
+  // 📈 GRAFİK
   grafikCiz(arabaCO2, elektrikCO2, ucakCO2);
 }
+
+// 📊 GRAFİK ÇİZİMİ
 function grafikCiz(araba, elektrik, ucak) {
   const canvas = document.getElementById("grafik");
   const ctx = canvas.getContext("2d");
@@ -54,25 +87,23 @@ function grafikCiz(araba, elektrik, ucak) {
     const y = 180 - barYukseklik;
 
     ctx.fillStyle = document.body.classList.contains("dark")
-  ? "#81c784"
-  : "#4CAF50";
-    ctx.fillRect(x, y, 40, barYukseklik);
+      ? "#81c784"
+      : "#4CAF50";
 
+    ctx.fillRect(x, y, 40, barYukseklik);
     ctx.fillStyle = "white";
     ctx.fillText(etiketler[i], x, 195);
   });
 }
-  const rozet = document.getElementById("rozet");
 
-  if (toplam < 2000) {
-    rozet.textContent = "🏆 ÇEVRE DOSTU 🌱";
-    rozet.className = "rozet yesil";
-  } else if (toplam < 5000) {
-    rozet.textContent = "⚠️ GELİŞTİRİLEBİLİR";
-    rozet.className = "rozet sari";
-  } else {
-    rozet.textContent = "❌ YÜKSEK KARBON AYAK İZİ";
-    rozet.className = "rozet kirmizi";
-  }
+// 💡 GÜNLÜK İPUCU
+const ipuclari = [
+  "Bugün kısa mesafelerde yürümeyi dene 🚶‍♂️",
+  "Gereksiz ışıkları kapat 💡",
+  "Bez çanta kullan 🛍️",
+  "Musluğu açık bırakma 🚰",
+  "Elektronik cihazları fişten çek 🔌"
+];
 
-  rozet.classList.remove("hidden");
+document.getElementById("ipucu").innerText =
+  ipuclari[Math.floor(Math.random() * ipuclari.length)];
