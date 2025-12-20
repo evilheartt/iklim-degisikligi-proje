@@ -157,3 +157,18 @@ body {
     width: 90%;
   }
 }
+.sure {
+  font-size: 22px;
+  font-weight: bold;
+  color: #2e7d32;
+  background: #e8f5e9;
+  padding: 10px;
+  border-radius: 10px;
+  display: inline-block;
+  margin-top: 10px;
+}
+
+.dark .sure {
+  background: #1e1e1e;
+  color: #81c784;
+}

@@ -1,4 +1,3 @@
-<p id="ilerleme">📍 İlerleme: %0</p>
 <!DOCTYPE html>
 <html lang="tr">
 <head>
@@ -9,75 +8,78 @@
 
 <body>
 
-  <header class="fade-in">
-    <h1>🌍 İklim Değişikliği</h1>
-    <p>Dünyamız için harekete geçme zamanı!</p>
-    <button onclick="karanlikMod()">🌙 Karanlık Mod</button>
-  </header>
+<header class="fade-in">
+  <h1>🌍 İklim Değişikliği</h1>
+  <p></p>
+  <button onclick="karanlikMod()">🌙 Karanlık Mod</button>
+</header>
 
-  <main class="fade-in">
+<p id="ilerleme">📍 İlerleme: %0</p>
+
+<main class="fade-in">
+
 <section class="fade-in">
   <h2>⏳ Günlük Çevre Görevi</h2>
   <p>Bir çevre dostu davranış düşün!</p>
-  <p id="sayim">60</p>
+  <p id="sayim" class="sure">⏱️ Kalan süre: 60 sn</p>
 </section>
+
 <section class="fade-in">
   <h2>🤔 Sen Ne Düşünüyorsun?</h2>
   <button onclick="cevapVer('enerji')">Enerji Tüketimi</button>
   <button onclick="cevapVer('ulasim')">Ulaşım</button>
   <button onclick="cevapVer('sanayi')">Sanayi</button>
-
   <p id="cevap" class="hidden"></p>
 </section>
 
-    <section class="fade-in">
-      <h2>📊 Küresel İstatistik</h2>
-      <p>Dünya sıcaklığı artışı:</p>
-      <strong>+1.1 °C</strong>
-    </section>
+<section class="fade-in">
+  <h2>📊 Küresel İstatistik</h2>
+  <p>Dünya sıcaklığı artışı:</p>
+  <strong>+1.1 °C</strong>
+</section>
 
-    <section class="fade-in">
-      <h2>❓ İklim Değişikliği Nedir?</h2>
-      <p>
-        İklim değişikliği, insan faaliyetleri sonucu dünyanın uzun vadeli sıcaklık
-        ve hava olaylarının değişmesidir.
-      </p>
-    </section>
+<section class="fade-in">
+  <h2>❓ İklim Değişikliği Nedir?</h2>
+  <p>
+    İklim değişikliği, insan faaliyetleri sonucu dünyanın uzun vadeli sıcaklık
+    ve hava olaylarının değişmesidir.
+  </p>
+</section>
 
-    <section class="fade-in">
-      <h2>♻️ Biz Ne Yapabiliriz?</h2>
-      <ul>
-        <li>🌱 Geri dönüşüm yapmak</li>
-        <li>🚍 Toplu taşıma kullanmak</li>
-        <li>💡 Enerjiyi tasarruflu kullanmak</li>
-      </ul>
+<section class="fade-in">
+  <h2>♻️ Biz Ne Yapabiliriz?</h2>
+  <ul>
+    <li>🌱 Geri dönüşüm yapmak</li>
+    <li>🚍 Toplu taşıma kullanmak</li>
+    <li>💡 Enerjiyi tasarruflu kullanmak</li>
+  </ul>
 
-      <button onclick="mesajGoster()">Ben de katkı sağlıyorum</button>
-      <p id="mesaj" class="hidden"></p>
-    </section>
+  <button onclick="mesajGoster()">Ben de katkı sağlıyorum</button>
+  <p id="mesaj" class="hidden"></p>
+</section>
 
-    <section class="fade-in">
-      <h2>📈 Farkındalık Sayacı</h2>
-      <p>Bu siteyi görüntüleyen kişi sayısı:</p>
-      <h3 id="sayac">0</h3>
-    </section>
+<section class="fade-in">
+  <h2>📈 Farkındalık Sayacı</h2>
+  <p>Bu siteyi görüntüleyen kişi sayısı:</p>
+  <h3 id="sayac">0</h3>
+</section>
 
-  </main>
-  <section class="fade-in">
+<section class="fade-in">
   <h2>💡 Günlük İklim İpucu</h2>
   <p id="ipucu"></p>
 </section>
+
 <section class="fade-in">
   <h2>🌍 Karbon Ayak İzi Hesaplayıcı</h2>
 
   <label>🚗 Haftada kaç km araba kullanıyorsun?</label><br>
-  <input type="number" id="araba" placeholder="Örn: 50"><br><br>
+  <input type="number" id="araba"><br><br>
 
   <label>⚡ Aylık elektrik tüketimin (kWh)?</label><br>
-  <input type="number" id="elektrik" placeholder="Örn: 150"><br><br>
+  <input type="number" id="elektrik"><br><br>
 
   <label>✈️ Yılda kaç kez uçak yolculuğu?</label><br>
-  <input type="number" id="ucak" placeholder="Örn: 2"><br><br>
+  <input type="number" id="ucak"><br><br>
 
   <button onclick="karbonHesapla()">Hesapla</button>
 
@@ -90,17 +92,12 @@
 
 <section class="bilgi-kutu fade-in">
   <h2>🌱 Karbon Ayak İzi Hakkında</h2>
-  <p>
-    Bu hesaplama yaklaşık değerler üzerinden yapılmaktadır.
-    Günlük alışkanlıklar, ulaşım türü ve enerji kullanımı sonucu etkileyebilir.
-  </p>
-
-  <p class="agac-bilgi">
-    🌳 1 ağaç yılda ortalama <strong>21 kg CO₂</strong> emer.
-  </p>
-
-  <p id="agacSonuc"></p>
+  <p>Bu hesaplama yaklaşık değerler üzerinden yapılmaktadır.</p>
+  <p>🌳 1 ağaç yılda ortalama <strong>21 kg CO₂</strong> emer.</p>
 </section>
+
+</main>
+
 <footer>
   <p>
     Bu web sitesi çevre bilinci oluşturmak amacıyla<br>
@@ -111,5 +108,3 @@
 <script src="script.js"></script>
 </body>
 </html>
-
-
