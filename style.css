@@ -1,0 +1,79 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #e8f5e9;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+header {
+  background-color: #2e7d32;
+  color: white;
+  padding: 30px;
+}
+
+main {
+  padding: 20px;
+}
+
+section {
+  background: rgb(255, 255, 255);
+  margin: 20px auto;
+  padding: 20px;
+  max-width: 600px;
+  border-radius: 10px;
+}
+
+/* BUTON */
+button {
+  background-color: #43a047;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.3s, background-color 0.3s;
+}
+
+button:hover {
+  background-color: #2e7d32;
+  transform: scale(1.05);
+}
+
+/* ANİMASYON */
+.fade-in {
+  animation: fadeIn 1.5s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* GİZLİ MESAJ */
+.hidden {
+  display: none;
+  margin-top: 15px;
+  font-weight: bold;
+  color: #2e7d32;
+}
+/* KARANLIK MOD */
+.dark {
+  background-color: #121212;
+  color: white;
+}
+
+.dark section {
+  background-color: #1e1e1e;
+}
+
+.dark header {
+  background-color: #000;
+}
