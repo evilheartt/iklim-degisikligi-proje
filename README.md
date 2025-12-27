@@ -1,25 +1,28 @@
-# 🌍 İklim Değişikliği ve Karbon Ayak İzi
+# 🌍 İklim Değişikliği Farkındalık Web Sitesi
 
-Bu web sitesi, iklim değişikliği ve küresel ısınma konusunda
-farkındalık oluşturmak amacıyla hazırlanmıştır.
+Bu proje, iklim değişikliği, küresel ısınma ve karbon ayak izi
+konularında farkındalık oluşturmak amacıyla hazırlanmıştır.
 
-## 📌 İçerikler
+## 🚀 Özellikler
 - Karbon Ayak İzi Tanımı
 - Küresel Isınma Tanımı
-- Günlük çevre görevleri ve ipuçları
-- Karbon ayak izi hesaplayıcı
-- Türkiye üzerinde günlük güncellenen küresel ısınma haritası
+- Karbon Ayak İzi Hesaplayıcı
+- Günlük İklim İpucu
+- Günlük Çevre Görevi
+- Karanlık / Aydınlık Mod
+- Kullanıcı Anketi
+- Ziyaretçi (Farkındalık) Sayacı
+- Günlük güncellenen Türkiye Haritası
 
-## 🗺 Harita Hakkında
-Haritada her gün, simülasyon yoluyla
-"küresel ısınmaya en çok katkı sağlayan şehir" gösterilir.
-Amaç farkındalık oluşturmaktır.
+## 🗺 Harita Bilgisi
+Harita, farkındalık amaçlıdır.
+Her gün tarih bazlı olarak farklı bir şehir öne çıkarılır.
 
-## 🛠 Kullanılan Teknolojiler
+## 🛠 Teknolojiler
 - HTML
 - CSS
 - JavaScript
-- Leaflet.js (Harita)
+- Leaflet.js
 - GitHub Pages
 
 ## 👤 Hazırlayan
