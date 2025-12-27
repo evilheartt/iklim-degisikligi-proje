@@ -1,14 +1,39 @@
 document.addEventListener("DOMContentLoaded", function () {
 
-  // 🌙 Tema
+  // 🌙 Dark Mode (Hatırlamalı)
   const themeBtn = document.getElementById("themeToggle");
   if (themeBtn) {
     themeBtn.onclick = () => {
       document.body.classList.toggle("dark");
+
+      if (document.body.classList.contains("dark")) {
+        localStorage.setItem("darkMode", "on");
+      } else {
+        localStorage.setItem("darkMode", "off");
+      }
     };
   }
 
-  // 👤 İsim
+  if (localStorage.getItem("darkMode") === "on") {
+    document.body.classList.add("dark");
+  }
+
+  // 🎨 Tema Rengi (Hatırlamalı)
+  const savedColor = localStorage.getItem("themeColor");
+  if (savedColor) {
+    document.documentElement.style.setProperty("--main-color", savedColor);
+  }
+
+  window.setColor = function (color) {
+    let value = "#2e8b57";
+    if (color === "blue") value = "#1e90ff";
+    if (color === "purple") value = "#8a2be2";
+
+    document.documentElement.style.setProperty("--main-color", value);
+    localStorage.setItem("themeColor", value);
+  };
+
+  // 👤 İsim Kaydetme
   const nameInput = document.getElementById("nameInput");
   const welcome = document.getElementById("welcome");
 
@@ -23,13 +48,13 @@ document.addEventListener("DOMContentLoaded", function () {
     welcome.innerText = "Hoş geldin " + savedName;
   }
 
-  // 👁️ Sayaç
-  let count = localStorage.getItem("counter") || 0;
+  // 👁️ Ziyaretçi Sayacı
+  let count = Number(localStorage.getItem("counter") || 0);
   count++;
   localStorage.setItem("counter", count);
   document.getElementById("counter").innerText = count;
 
-  // 🧮 Karbon Hesabı
+  // 🧮 Karbon Ayak İzi Hesabı
   window.calculateCarbon = function () {
     const km = Number(document.getElementById("km").value) * 0.21 * 365;
     const elec = Number(document.getElementById("electric").value) * 0.43 * 12;
@@ -55,7 +80,7 @@ document.addEventListener("DOMContentLoaded", function () {
     ctx.fillRect(150, c.height - elec / 15, 50, elec / 15);
   }
 
-  // 🗺 Harita
+  // 🗺 Türkiye Haritası
   const cities = [
     { name: "İstanbul", lat: 41.01, lon: 28.97, carbon: 120 },
     { name: "Ankara", lat: 39.93, lon: 32.86, carbon: 90 },
@@ -81,31 +106,3 @@ document.addEventListener("DOMContentLoaded", function () {
     `Bugün öne çıkan şehir: ${city.name}`;
 
 });
-// 🎨 Renk Teması
-function setColor(color) {
-  let value = "#2e8b57";
-
-  if (color === "blue") value = "#1e90ff";
-  if (color === "purple") value = "#8a2be2";
-
-  document.documentElement.style.setProperty("--main-color", value);
-  localStorage.setItem("themeColor", value);
-}
-
-// Sayfa açılınca hatırla
-const savedColor = localStorage.getItem("themeColor");
-if (savedColor) {
-  document.documentElement.style.setProperty("--main-color", savedColor);
-}
-// 🌙 Dark mode hatırlama
-const darkMode = localStorage.getItem("darkMode");
-if (darkMode === "on") {
-  document.body.classList.add("dark");
-}
-
-// 🎨 Tema rengi hatırlama
-const savedColor = localStorage.getItem("themeColor");
-if (savedColor) {
-  document.documentElement.style.setProperty("--main-color", savedColor);
-}
-
