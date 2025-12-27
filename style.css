@@ -1,174 +1,39 @@
 body {
-  font-family: Arial, sans-serif;
-  background-color: #e8f5e9;
-  margin: 0;
-  padding: 0;
-  text-align: center;
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    color: #333;
+    padding: 20px;
+    transition: 0.3s;
 }
 
-header {
-  background-color: #2e7d32;
-  color: white;
-  padding: 30px;
-}
-
-main {
-  padding: 20px;
+.dark {
+    background-color: #121212;
+    color: #eee;
 }
 
 section {
-  background: rgb(255, 255, 255);
-  margin: 20px auto;
-  padding: 20px;
-  max-width: 600px;
-  border-radius: 10px;
-}
-
-/* BUTON */
-button {
-  background-color: #43a047;
-  color: white;
-  border: none;
-  padding: 12px 20px;
-  font-size: 16px;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: transform 0.3s, background-color 0.3s;
-}
-
-button:hover {
-  background-color: #2e7d32;
-  transform: scale(1.05);
-}
-
-/* ANİMASYON */
-.fade-in {
-  animation: fadeIn 1.5s ease-in;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* GİZLİ MESAJ */
-.hidden {
-  display: none;
-  margin-top: 15px;
-  font-weight: bold;
-  color: #2e7d32;
-}
-/* KARANLIK MOD */
-.dark {
-  background-color: #121212;
-  color: white;
+    background: white;
+    padding: 15px;
+    margin: 15px 0;
+    border-radius: 10px;
 }
 
 .dark section {
-  background-color: #1e1e1e;
-}
-
-.dark header {
-  background-color: #000;
-}
-input {
-  padding: 8px;
-  width: 220px;
-  border-radius: 6px;
-  border: 1px solid #ccc;
+    background: #1e1e1e;
 }
 
 button {
-  padding: 10px 16px;
-  border-radius: 8px;
-  cursor: pointer;
+    padding: 8px 12px;
+    margin: 5px 0;
+    cursor: pointer;
 }
 
-.dark input {
-  background: #222;
-  color: white;
-  border: 1px solid #555;
-}
-.rozet {
-  font-size: 18px;
-  margin-top: 10px;
-  padding: 10px;
-  border-radius: 10px;
-  display: inline-block;
+#map {
+    height: 400px;
+    border-radius: 10px;
 }
 
-.yesil {
-  background: #2e7d32;
-  color: white;
-}
-
-.sari {
-  background: #f9a825;
-  color: black;
-}
-
-.kirmizi {
-  background: #c62828;
-  color: white;
-}
 footer {
-  background-color: #222;
-  color: white;
-  text-align: center;
-  padding: 20px;
-  margin-top: 40px;
-  font-size: 14px;
-}
-footer {
-  display: block;
-  width: 100%;
-  position: relative;
-  z-index: 10;
-  clear: both;
-}
-body {
-  animation: giris 1.2s ease-in;
-}
-
-@keyframes giris {
-  from {
-    opacity: 0;
-    transform: scale(0.97);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-@media (max-width: 600px) {
-  button {
-    width: 90%;
-    font-size: 18px;
-    margin-bottom: 10px;
-  }
-
-  input {
-    width: 90%;
-  }
-}
-.sure {
-  font-size: 22px;
-  font-weight: bold;
-  color: #2e7d32;
-  background: #e8f5e9;
-  padding: 10px;
-  border-radius: 10px;
-  display: inline-block;
-  margin-top: 10px;
-}
-
-.dark .sure {
-  background: #1e1e1e;
-  color: #81c784;
+    text-align: center;
+    margin-top: 30px;
 }
