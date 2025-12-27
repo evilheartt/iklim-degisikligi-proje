@@ -4,12 +4,12 @@
   <meta charset="UTF-8">
   <title>İklim Değişikliği Farkındalık</title>
 
-  <!-- Sayfa boyanmadan önce tema + dark -->
+  <!-- Sayfa yüklenmeden önce tema -->
   <script>
     (function () {
       const dark = localStorage.getItem("darkMode");
       const color = localStorage.getItem("themeColor");
-      if (dark === "on") document.documentElement.classList.add("dark");
+      if (dark === "on") document.body?.classList.add("dark");
       if (color) document.documentElement.style.setProperty("--main-color", color);
     })();
   </script>
@@ -32,48 +32,50 @@
 
 <hr>
 
-<h2>📘 Tanımlar</h2>
+<section>
+  <h2>📘 Tanımlar</h2>
 
-<h3>♻️ Karbon Ayak İzi Nedir?</h3>
-<p>
-Karbon ayak izi; bir bireyin, kurumun veya ürünün
-ulaşım, enerji kullanımı ve günlük faaliyetleri sonucu
-atmosfere saldığı toplam sera gazı miktarıdır.
-Genellikle karbondioksit (CO₂) cinsinden ifade edilir.
-</p>
+  <h3>♻️ Karbon Ayak İzi</h3>
+  <p>
+    Karbon ayak izi, bireylerin veya toplumların ulaşım, enerji kullanımı
+    ve günlük faaliyetleri sonucu atmosfere saldığı toplam sera gazı miktarıdır.
+  </p>
 
-<h3>🔥 Küresel Isınma Nedir?</h3>
-<p>
-Küresel ısınma, insan faaliyetleri nedeniyle atmosfere salınan
-sera gazlarının artması sonucu Dünya’nın ortalama sıcaklığının
-yükselmesi olayıdır. Bu durum iklim değişikliğine ve
-aşırı hava olaylarına yol açar.
-</p>
+  <h3>🔥 Küresel Isınma</h3>
+  <p>
+    Küresel ısınma, sera gazlarının artmasıyla Dünya’nın ortalama sıcaklığının
+    yükselmesi ve bunun iklim sistemini etkilemesidir.
+  </p>
+</section>
 
 <hr>
 
-<h2>👤 Ziyaretçi</h2>
-<input id="nameInput" placeholder="Ad Soyad">
-<button onclick="saveName()">Kaydet</button>
-<p id="welcome"></p>
-
-<p>👁️ Ziyaretçi Sayısı: <span id="counter">0</span></p>
-
-<hr>
-
-<h2>🧮 Karbon Ayak İzi Hesaplayıcı</h2>
-<input id="km" type="number" placeholder="Günlük km">
-<input id="electric" type="number" placeholder="Aylık elektrik (kWh)">
-<button onclick="calculateCarbon()">Hesapla</button>
-<p id="carbonResult"></p>
-
-<canvas id="chart" width="300" height="200"></canvas>
+<section>
+  <h2>👤 Ziyaretçi</h2>
+  <input id="nameInput" placeholder="Ad Soyad">
+  <button onclick="saveName()">Kaydet</button>
+  <p id="welcome"></p>
+  <p>👁️ Ziyaretçi Sayısı: <span id="counter">0</span></p>
+</section>
 
 <hr>
 
-<h2>🗺 Türkiye Karbon Haritası</h2>
-<div id="map"></div>
-<p id="cityInfo"></p>
+<section>
+  <h2>🧮 Karbon Ayak İzi Hesaplayıcı</h2>
+  <input id="km" type="number" placeholder="Günlük km">
+  <input id="electric" type="number" placeholder="Aylık elektrik (kWh)">
+  <button onclick="calculateCarbon()">Hesapla</button>
+  <p id="carbonResult"></p>
+  <canvas id="chart" width="300" height="200"></canvas>
+</section>
+
+<hr>
+
+<section>
+  <h2>🗺 Türkiye Karbon Haritası</h2>
+  <div id="map"></div>
+  <p id="cityInfo"></p>
+</section>
 
 <hr>
 
@@ -81,8 +83,6 @@ aşırı hava olaylarına yol açar.
 
 <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 <script src="script.js"></script>
-
-
 </body>
 </html>
 
