@@ -97,4 +97,15 @@ const savedColor = localStorage.getItem("themeColor");
 if (savedColor) {
   document.documentElement.style.setProperty("--main-color", savedColor);
 }
+// 🌙 Dark mode hatırlama
+const darkMode = localStorage.getItem("darkMode");
+if (darkMode === "on") {
+  document.body.classList.add("dark");
+}
+
+// 🎨 Tema rengi hatırlama
+const savedColor = localStorage.getItem("themeColor");
+if (savedColor) {
+  document.documentElement.style.setProperty("--main-color", savedColor);
+}
 
