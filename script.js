@@ -1,7 +1,8 @@
 document.addEventListener("DOMContentLoaded", function () {
 
-  // 🌙 Dark Mode
-  document.getElementById("themeToggle").onclick = () => {
+  // 🌙 Dark Mode (SADECE html.dark)
+  const toggleBtn = document.getElementById("themeToggle");
+  toggleBtn.onclick = () => {
     document.documentElement.classList.toggle("dark");
     localStorage.setItem(
       "darkMode",
@@ -9,7 +10,7 @@ document.addEventListener("DOMContentLoaded", function () {
     );
   };
 
-  // 🎨 Renk Teması
+  // 🎨 Tema Renkleri
   window.setColor = function (color) {
     let value = "#2e8b57";
     if (color === "blue") value = "#1e90ff";
@@ -29,13 +30,13 @@ document.addEventListener("DOMContentLoaded", function () {
   const savedName = localStorage.getItem("userName");
   if (savedName) welcome.innerText = "Hoş geldin " + savedName;
 
-  // 👁️ Sayaç
+  // 👁️ Ziyaretçi Sayacı
   let count = Number(localStorage.getItem("counter") || 0);
   count++;
   localStorage.setItem("counter", count);
   document.getElementById("counter").innerText = count;
 
-  // 🧮 Karbon Hesabı
+  // 🧮 Karbon Hesaplama
   window.calculateCarbon = function () {
     const km = Number(document.getElementById("km").value) * 0.21 * 365;
     const elec = Number(document.getElementById("electric").value) * 0.43 * 12;
@@ -48,8 +49,10 @@ document.addEventListener("DOMContentLoaded", function () {
     const c = document.getElementById("chart");
     const ctx = c.getContext("2d");
     ctx.clearRect(0, 0, c.width, c.height);
+
     ctx.fillStyle = "green";
     ctx.fillRect(50, c.height - km / 15, 50, km / 15);
+
     ctx.fillStyle = "blue";
     ctx.fillRect(150, c.height - elec / 15, 50, elec / 15);
   };
@@ -66,13 +69,13 @@ document.addEventListener("DOMContentLoaded", function () {
   L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png").addTo(map);
 
   cities.forEach(c =>
-    L.marker([c.lat, c.lon]).addTo(map)
+    L.marker([c.lat, c.lon])
+      .addTo(map)
       .bindPopup(`${c.name}<br>Karbon: ${c.carbon}`)
   );
 
   const city = cities[new Date().getDate() % cities.length];
   document.getElementById("cityInfo").innerText =
     "Bugün öne çıkan şehir: " + city.name;
-
 });
 
