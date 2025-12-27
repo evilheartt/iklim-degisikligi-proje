@@ -81,4 +81,20 @@ document.addEventListener("DOMContentLoaded", function () {
     `Bugün öne çıkan şehir: ${city.name}`;
 
 });
+// 🎨 Renk Teması
+function setColor(color) {
+  let value = "#2e8b57";
+
+  if (color === "blue") value = "#1e90ff";
+  if (color === "purple") value = "#8a2be2";
+
+  document.documentElement.style.setProperty("--main-color", value);
+  localStorage.setItem("themeColor", value);
+}
+
+// Sayfa açılınca hatırla
+const savedColor = localStorage.getItem("themeColor");
+if (savedColor) {
+  document.documentElement.style.setProperty("--main-color", savedColor);
+}
 
