@@ -1,86 +1,67 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-<meta charset="UTF-8">
-<title>İklim Değişikliği Farkındalık Projesi</title>
+  <meta charset="UTF-8">
+  <title>İklim Değişikliği Farkındalık</title>
 
-<link rel="stylesheet" href="style.css">
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <!-- ⚠️ BEYAZ FLAŞI %100 BİTİREN KOD -->
+  <script>
+    (function () {
+      const dark = localStorage.getItem("darkMode");
+      const color = localStorage.getItem("themeColor");
+      if (dark === "on") document.documentElement.classList.add("dark");
+      if (color) document.documentElement.style.setProperty("--main-color", color);
+    })();
+  </script>
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css">
 </head>
+
 <body>
 
+<h1>🌍 İklim Değişikliği Farkındalık Sitesi</h1>
+
 <button id="themeToggle">🌙 Karanlık Mod</button>
-  <div class="color-panel">
-  <span>Tema Rengi:</span>
+
+<div class="color-panel">
+  <span>Tema:</span>
   <button onclick="setColor('green')">🟢</button>
   <button onclick="setColor('blue')">🔵</button>
   <button onclick="setColor('purple')">🟣</button>
 </div>
 
+<hr>
 
-<h1>🌍 İklim Değişikliği Farkındalık Sitesi</h1>
-
-<section>
-<h2>👤 Hoş Geldin</h2>
+<h2>👤 Ziyaretçi</h2>
 <input id="nameInput" placeholder="Ad Soyad">
 <button onclick="saveName()">Kaydet</button>
 <p id="welcome"></p>
-</section>
 
-<section>
-<h2>🔥 Küresel Isınma Nedir?</h2>
-<p>
-Küresel ısınma, atmosferdeki sera gazlarının artması sonucu
-Dünya’nın ortalama sıcaklığının yükselmesidir. Bu durum
-iklim değişikliği, buzulların erimesi ve aşırı hava olaylarına yol açar.
-</p>
-</section>
+<p>👁️ Ziyaretçi Sayısı: <span id="counter">0</span></p>
 
-<section>
-<h2>🌿 Karbon Ayak İzi Nedir?</h2>
-<p>
-Karbon ayak izi, bireylerin, kurumların veya şehirlerin
-faaliyetleri sonucu atmosfere saldığı toplam sera gazı miktarıdır.
-Genellikle CO₂ cinsinden hesaplanır.
-</p>
-</section>
+<hr>
 
-<section>
-<h2>📉 Karbon Ayak İzini Nasıl Azaltırız?</h2>
-<ul>
-<li>Toplu taşıma kullanmak</li>
-<li>Enerji tasarrufu yapmak</li>
-<li>Yenilenebilir enerjiye yönelmek</li>
-<li>Geri dönüşüm</li>
-<li>Ağaçlandırma</li>
-</ul>
-</section>
-
-<section>
 <h2>🧮 Karbon Ayak İzi Hesaplayıcı</h2>
-<input type="number" id="km" placeholder="Günlük ulaşım (km)">
-<input type="number" id="electric" placeholder="Aylık elektrik (kWh)">
+<input id="km" type="number" placeholder="Günlük km">
+<input id="electric" type="number" placeholder="Aylık elektrik (kWh)">
 <button onclick="calculateCarbon()">Hesapla</button>
 <p id="carbonResult"></p>
-<canvas id="chart" width="300" height="200"></canvas>
-</section>
 
-<section>
-<h2>🗺 Türkiye Karbon Ayak İzi Haritası</h2>
+<canvas id="chart" width="300" height="200"></canvas>
+
+<hr>
+
+<h2>🗺 Türkiye Karbon Haritası</h2>
 <div id="map"></div>
 <p id="cityInfo"></p>
-</section>
 
-<section>
-<h2>👁️ Ziyaretçi Sayısı</h2>
-<p id="counter"></p>
-</section>
+<hr>
 
-<footer>
-<p>Hazırlayan: Aziz</p>
-</footer>
+<p><b>Hazırlayan:</b> Aziz Kürkçüoğlu</p>
 
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 <script src="script.js"></script>
+
 </body>
 </html>
