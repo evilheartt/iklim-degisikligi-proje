@@ -1,25 +1,26 @@
-# İklim Değişikliği Projesi
+# 🌍 İklim Değişikliği ve Karbon Ayak İzi
 
-Bu repo, iklim değişikliği konusu hakkında hazırlanan bir kod projesidir.
+Bu web sitesi, iklim değişikliği ve küresel ısınma konusunda
+farkındalık oluşturmak amacıyla hazırlanmıştır.
 
-## Amaç
-İklim değişikliğinin ne olduğunu ve insanların günlük alışkanlıklarını analiz etmek projemin amacıdır.
+## 📌 İçerikler
+- Karbon Ayak İzi Tanımı
+- Küresel Isınma Tanımı
+- Günlük çevre görevleri ve ipuçları
+- Karbon ayak izi hesaplayıcı
+- Türkiye üzerinde günlük güncellenen küresel ısınma haritası
 
-## Kullanılan Teknolojiler
-- Python
+## 🗺 Harita Hakkında
+Haritada her gün, simülasyon yoluyla
+"küresel ısınmaya en çok katkı sağlayan şehir" gösterilir.
+Amaç farkındalık oluşturmaktır.
 
-## Dosyalar
-- index.html : Web sitesinin ana sayfası
-- style.css : Tasarım dosyası
-- script.js : Etkileşim (JavaScript) dosyası
-- README.md : Proje açıklaması
+## 🛠 Kullanılan Teknolojiler
+- HTML
+- CSS
+- JavaScript
+- Leaflet.js (Harita)
+- GitHub Pages
 
-## Hazırlayan
+## 👤 Hazırlayan
 Aziz Kürkçüoğlu
-
-## Projemin fikri:
-> Bu proje, bireylerin günlük yaşamda yaptıkları davranışların iklim değişikliğine olan etkisini fark etmelerini amaçlamaktadır. 
-Kullanıcıdan alınan basit bilgiler (ulaşım şekli, elektrik kullanımı, geri dönüşüm alışkanlığı gibi) sayesinde,
-kişinin karbon ayak izi hakkında yaklaşık bir değerlendirme yapılır.
-> Proje, iklim değişikliği konusunda farkındalık oluşturmayı ve insanları çevreye daha duyarlı davranmaya teşvik etmeyi hedeflemektedir.
-
