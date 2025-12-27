@@ -2,14 +2,20 @@
   --main-color: #2e8b57;
 }
 
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
 body {
   font-family: Arial, sans-serif;
   background: #f5f5f5;
   color: #111;
   padding: 20px;
-  transition: 0.3s;
+  transition: background 0.3s, color 0.3s;
 }
 
+/* 🌙 Dark mode – SADECE html.dark */
 html.dark body {
   background: #111;
   color: #eee;
@@ -43,3 +49,4 @@ input {
   margin-top: 10px;
   border-radius: 8px;
 }
+
