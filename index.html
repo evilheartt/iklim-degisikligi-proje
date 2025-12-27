@@ -1,73 +1,78 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="UTF-8">
-  <title>İklim Değişikliği Farkındalık</title>
-  <link rel="stylesheet" href="style.css">
-</head>
+    <meta charset="UTF-8">
+    <title>İklim Değişikliği</title>
 
+    <link rel="stylesheet" href="style.css">
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    />
+</head>
 <body>
 
-<header class="fade-in">
-  <h1>🌍 İklim Değişikliği</h1>
-  <p></p>
-  <button onclick="karanlikMod()">🌙 Karanlık Mod</button>
-</header>
+<button id="themeToggle">🌙 Karanlık Mod</button>
 
-<p id="ilerleme">📍 İlerleme: %0</p>
+<h1>🌍 İklim Değişikliği</h1>
 
-<main>
-
-<section class="fade-in">
-  <h2>⏳ Günlük Çevre Görevi</h2>
-  <p>Bir çevre dostu davranış düşün!</p>
-  <p id="sayim">60</p>
+<section>
+    <h2>🌿 Karbon Ayak İzi Nedir?</h2>
+    <p>
+        Karbon ayak izi, bireylerin veya toplumların günlük
+        faaliyetleri sonucu atmosfere saldığı sera gazı miktarıdır.
+    </p>
 </section>
 
-<section class="fade-in">
-  <h2>🤔 Sen Ne Düşünüyorsun?</h2>
-  <button onclick="cevapVer('enerji')">Enerji</button>
-  <button onclick="cevapVer('ulasim')">Ulaşım</button>
-  <button onclick="cevapVer('sanayi')">Sanayi</button>
-  <p id="cevap" class="hidden"></p>
+<section>
+    <h2>🔥 Küresel Isınma Nedir?</h2>
+    <p>
+        Küresel ısınma, sera gazlarının artmasıyla Dünya'nın
+        ortalama sıcaklığının yükselmesidir.
+    </p>
 </section>
 
-<section class="fade-in">
-  <h2>📈 Farkındalık Sayacı</h2>
-  <p>Bu siteyi görüntüleyen kişi sayısı:</p>
-  <h3 id="sayac">0</h3>
+<section>
+    <h2>🧮 Karbon Ayak İzi Hesaplayıcı</h2>
+    <input type="number" id="carbonInput" placeholder="Günlük km (ulaşım)">
+    <button onclick="calculateCarbon()">Hesapla</button>
+    <p id="carbonResult"></p>
 </section>
 
-<section class="fade-in">
-  <h2>💡 Günlük İklim İpucu</h2>
-  <p id="ipucu"></p>
+<section>
+    <h2>💡 Günlük İklim İpucu</h2>
+    <p id="dailyTip"></p>
 </section>
 
-<section class="fade-in">
-  <h2>🌍 Karbon Ayak İzi Hesaplayıcı</h2>
-
-  <input type="number" id="araba" placeholder="Haftalık araba km"><br><br>
-  <input type="number" id="elektrik" placeholder="Aylık elektrik kWh"><br><br>
-  <input type="number" id="ucak" placeholder="Yıllık uçuş sayısı"><br><br>
-
-  <button onclick="karbonHesapla()">Hesapla</button>
-
-  <p id="sonuc" class="hidden"></p>
-  <p id="agac" class="hidden"></p>
-  <p id="rozet" class="hidden rozet"></p>
-
-  <canvas id="grafik" width="300" height="200"></canvas>
+<section>
+    <h2>✅ Günlük Çevre Görevi</h2>
+    <p id="dailyTask"></p>
 </section>
 
-</main>
+<section>
+    <h2>🗳 Sence En Büyük Neden?</h2>
+    <button onclick="vote('Enerji')">Enerji</button>
+    <button onclick="vote('Ulaşım')">Ulaşım</button>
+    <button onclick="vote('Sanayi')">Sanayi</button>
+    <p id="voteResult"></p>
+</section>
+
+<section>
+    <h2>🗺 Günlük Küresel Isınma Haritası</h2>
+    <div id="map"></div>
+    <p id="cityInfo"></p>
+</section>
+
+<section>
+    <h2>👁️ Farkındalık Sayacı</h2>
+    <p id="counter"></p>
+</section>
 
 <footer>
-  <p>
-    Bu web sitesi çevre bilinci oluşturmak amacıyla<br>
-    <strong>Aziz Kürkçüoğlu</strong> tarafından hazırlanmıştır.
-  </p>
+    <p>Hazırlayan: Aziz</p>
 </footer>
 
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script src="script.js"></script>
 </body>
 </html>
