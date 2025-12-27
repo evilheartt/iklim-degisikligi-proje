@@ -1,73 +1,69 @@
 // 🌙 Tema
 document.getElementById("themeToggle").onclick = () => {
-    document.body.classList.toggle("dark");
+document.body.classList.toggle("dark");
 };
 
-// 💡 Günlük İpucu
-const tips = [
-    "Gereksiz ışıkları kapat.",
-    "Toplu taşıma kullan.",
-    "Plastik tüketimini azalt.",
-    "Su tasarrufu yap.",
-    "Geri dönüşüme dikkat et."
-];
-document.getElementById("dailyTip").innerText =
-    tips[Math.floor(Math.random() * tips.length)];
-
-// ✅ Günlük Görev
-const tasks = [
-    "Bez çanta kullan.",
-    "Kısa mesafede yürüyüş yap.",
-    "Elektronik aletleri prizden çek.",
-    "Bir fidan dik."
-];
-document.getElementById("dailyTask").innerText =
-    tasks[Math.floor(Math.random() * tasks.length)];
-
-// 🧮 Karbon Hesaplama
-function calculateCarbon() {
-    const km = document.getElementById("carbonInput").value;
-    const result = km * 0.21;
-    document.getElementById("carbonResult").innerText =
-        `Tahmini CO₂ salımı: ${result.toFixed(2)} kg`;
+// 👤 İsim
+function saveName(){
+const name=document.getElementById("nameInput").value;
+localStorage.setItem("userName",name);
+document.getElementById("welcome").innerText="Hoş geldin "+name;
 }
-
-// 🗳 Anket
-function vote(option) {
-    document.getElementById("voteResult").innerText =
-        `Seçimin: ${option}`;
+if(localStorage.getItem("userName")){
+document.getElementById("welcome").innerText=
+"Hoş geldin "+localStorage.getItem("userName");
 }
 
 // 👁️ Sayaç
-let count = localStorage.getItem("counter") || 0;
+let count=localStorage.getItem("counter")||0;
 count++;
-localStorage.setItem("counter", count);
-document.getElementById("counter").innerText = count;
+localStorage.setItem("counter",count);
+document.getElementById("counter").innerText=count;
+
+// 🧮 Karbon Hesabı
+function calculateCarbon(){
+const km=document.getElementById("km").value*0.21*365;
+const elec=document.getElementById("electric").value*0.43*12;
+const total=(km+elec).toFixed(2);
+const trees=Math.ceil(total/22);
+
+document.getElementById("carbonResult").innerText=
+`Yıllık CO₂: ${total} kg | Dengelenmesi için ${trees} ağaç gerekir`;
+
+drawChart(km,elec);
+}
+
+// 📊 Grafik
+function drawChart(km,elec){
+const c=document.getElementById("chart");
+const ctx=c.getContext("2d");
+ctx.clearRect(0,0,300,200);
+ctx.fillStyle="green";
+ctx.fillRect(50,200-km/10,50,km/10);
+ctx.fillStyle="blue";
+ctx.fillRect(150,200-elec/10,50,elec/10);
+}
 
 // 🗺 Harita
-const cities = [
-    { name: "İstanbul", lat: 41.0082, lon: 28.9784 },
-    { name: "Ankara", lat: 39.9334, lon: 32.8597 },
-    { name: "İzmir", lat: 38.4237, lon: 27.1428 },
-    { name: "Adana", lat: 37.0000, lon: 35.3213 },
-    { name: "Bursa", lat: 40.1950, lon: 29.0600 }
+const cities=[
+{name:"İstanbul",lat:41,lon:29,carbon:120},
+{name:"Ankara",lat:39.9,lon:32.8,carbon:90},
+{name:"İzmir",lat:38.4,lon:27.1,carbon:80},
+{name:"Adana",lat:37,lon:35.3,carbon:70},
+{name:"Bursa",lat:40.2,lon:29.1,carbon:75}
 ];
 
-const today = new Date().getDate();
-const selectedCity = cities[today % cities.length];
+const today=new Date().getDate();
+const city=cities[today%cities.length];
 
-const map = L.map("map").setView(
-    [selectedCity.lat, selectedCity.lon], 6
-);
+const map=L.map("map").setView([39,35],6);
+L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png").addTo(map);
 
-L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-    attribution: "© OpenStreetMap"
-}).addTo(map);
+cities.forEach(c=>{
+L.marker([c.lat,c.lon])
+.addTo(map)
+.bindPopup(`${c.name}<br>Karbon: ${c.carbon} Mt`);
+});
 
-L.marker([selectedCity.lat, selectedCity.lon])
-    .addTo(map)
-    .bindPopup(`🔥 Bugün öne çıkan şehir: <b>${selectedCity.name}</b>`)
-    .openPopup();
-
-document.getElementById("cityInfo").innerText =
-    `Bugün küresel ısınmaya etkisi yüksek olduğu varsayılan şehir: ${selectedCity.name}`;
+document.getElementById("cityInfo").innerText=
+`Bugün öne çıkan şehir: ${city.name}`;
